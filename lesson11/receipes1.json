@@ -1,0 +1,742 @@
+{
+    "recipes": [
+        {
+            "vegetarian": false,
+            "vegan": false,
+            "glutenFree": false,
+            "dairyFree": false,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 8,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 124,
+            "spoonacularScore": 64.0,
+            "healthScore": 10.0,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 179.7,
+            "extendedIngredients": [
+                {
+                    "id": 1055062,
+                    "aisle": "Meat",
+                    "image": "chicken-breasts.png",
+                    "consistency": "solid",
+                    "name": "skinless boneless chicken breasts",
+                    "nameClean": "boneless skinless chicken breast",
+                    "original": "6 boneless skinless chicken breasts (I used 2 very large ones)",
+                    "originalName": "boneless skinless chicken breasts (I used 2 very large ones)",
+                    "amount": 6.0,
+                    "unit": "large",
+                    "meta": [
+                        "boneless",
+                        "skinless",
+                        "(I used 2 very large ones)"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 6.0,
+                            "unitShort": "large",
+                            "unitLong": "larges"
+                        },
+                        "metric": {
+                            "amount": 6.0,
+                            "unitShort": "large",
+                            "unitLong": "larges"
+                        }
+                    }
+                },
+                {
+                    "id": 1001,
+                    "aisle": "Milk, Eggs, Other Dairy",
+                    "image": "butter-sliced.jpg",
+                    "consistency": "solid",
+                    "name": "butter",
+                    "nameClean": "butter",
+                    "original": "2 tablespoons butter",
+                    "originalName": "butter",
+                    "amount": 2.0,
+                    "unit": "tablespoons",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2.0,
+                            "unitShort": "Tbsps",
+                            "unitLong": "Tbsps"
+                        },
+                        "metric": {
+                            "amount": 2.0,
+                            "unitShort": "Tbsps",
+                            "unitLong": "Tbsps"
+                        }
+                    }
+                },
+                {
+                    "id": 6016,
+                    "aisle": "Canned and Jarred",
+                    "image": "cream-of-chicken-soup.jpg",
+                    "consistency": "liquid",
+                    "name": "cream of chicken soup",
+                    "nameClean": "condensed cream of chicken soup",
+                    "original": "2 cans cream of chicken soup",
+                    "originalName": "cream of chicken soup",
+                    "amount": 2.0,
+                    "unit": "cans",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2.0,
+                            "unitShort": "cans",
+                            "unitLong": "cans"
+                        },
+                        "metric": {
+                            "amount": 2.0,
+                            "unitShort": "cans",
+                            "unitLong": "cans"
+                        }
+                    }
+                },
+                {
+                    "id": 6194,
+                    "aisle": "Canned and Jarred",
+                    "image": "chicken-broth.png",
+                    "consistency": "liquid",
+                    "name": "chicken broth",
+                    "nameClean": "chicken broth",
+                    "original": "1 can chicken broth",
+                    "originalName": "chicken broth",
+                    "amount": 1.0,
+                    "unit": "can",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1.0,
+                            "unitShort": "can",
+                            "unitLong": "can"
+                        },
+                        "metric": {
+                            "amount": 1.0,
+                            "unitShort": "can",
+                            "unitLong": "can"
+                        }
+                    }
+                },
+                {
+                    "id": 11282,
+                    "aisle": "Produce",
+                    "image": "brown-onion.png",
+                    "consistency": "solid",
+                    "name": "onion",
+                    "nameClean": "onion",
+                    "original": "1 onion diced",
+                    "originalName": "onion diced",
+                    "amount": 1.0,
+                    "unit": "",
+                    "meta": [
+                        "diced"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1.0,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 1.0,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 2029,
+                    "aisle": "Spices and Seasonings",
+                    "image": "dried-parsley.png",
+                    "consistency": "solid",
+                    "name": "dried parsley",
+                    "nameClean": "dried parsley",
+                    "original": "1 tablespoon dried parsley",
+                    "originalName": "dried parsley",
+                    "amount": 1.0,
+                    "unit": "tablespoon",
+                    "meta": [
+                        "dried"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1.0,
+                            "unitShort": "Tbsp",
+                            "unitLong": "Tbsp"
+                        },
+                        "metric": {
+                            "amount": 1.0,
+                            "unitShort": "Tbsp",
+                            "unitLong": "Tbsp"
+                        }
+                    }
+                },
+                {
+                    "id": 18009,
+                    "aisle": "Refrigerated",
+                    "image": "buttermilk-biscuits.jpg",
+                    "consistency": "solid",
+                    "name": "biscuits",
+                    "nameClean": "buttermilk biscuits",
+                    "original": "4 grands flaky refrigerator biscuits",
+                    "originalName": "grands flaky refrigerator biscuits",
+                    "amount": 4.0,
+                    "unit": "",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 4.0,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 4.0,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                }
+            ],
+            "id": 640886,
+            "title": "Crockpot Chicken and Dumplings",
+            "readyInMinutes": 45,
+            "servings": 6,
+            "sourceUrl": "https://www.foodista.com/recipe/DJ5GP3VY/crock-pot-chicken-and-dumplings-recipe",
+            "image": "https://spoonacular.com/recipeImages/640886-556x370.jpg",
+            "imageType": "jpg",
+            "summary": "The recipe Crockpot Chicken and Dumplings can be made <b>in approximately approximately 45 minutes</b>. For <b>$1.8 per serving</b>, you get a main course that serves 6. One serving contains <b>330 calories</b>, <b>28g of protein</b>, and <b>16g of fat</b>. A mixture of parsley, chicken broth, onion, and a handful of other ingredients are all it takes to make this recipe so delicious. 124 people have tried and liked this recipe. It is brought to you by Foodista. All things considered, we decided this recipe <b>deserves a spoonacular score of 63%</b>. This score is solid. Similar recipes are <a href=\\"https://spoonacular.com/recipes/crockpot-chicken-and-dumplings-891762\\">Crockpot chicken and dumplings</a>, <a href=\\"https://spoonacular.com/recipes/crockpot-chicken-and-dumplings-525729\\">Crockpot Chicken and Dumplings</a>, and <a href=\\"https://spoonacular.com/recipes/crockpot-chicken-dumplings-520773\\">Crockpot Chicken & Dumplings</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "lunch",
+                "main course",
+                "main dish",
+                "dinner"
+            ],
+            "diets": [],
+            "occasions": [],
+            "instructions": "Place chicken in the crock pot. Add butter, cream of chicken soup, chicken broth, diced onion, and parsley.\nCook on high for 4-6 hours or low for 8-10.\n30 minutes before chicken is finished cooking, cut biscuits into 9 pieces and add to crock pot. Gently stir to coat biscuits. Continue to cook for 30 minutes, then serve!",
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Place chicken in the crock pot.",
+                            "ingredients": [
+                                {
+                                    "id": 5006,
+                                    "name": "whole chicken",
+                                    "localizedName": "whole chicken",
+                                    "image": "whole-chicken.jpg"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404718,
+                                    "name": "slow cooker",
+                                    "localizedName": "slow cooker",
+                                    "image": "slow-cooker.jpg"
+                                }
+                            ]
+                        },
+                        {
+                            "number": 2,
+                            "step": "Add butter, cream of chicken soup, chicken broth, diced onion, and parsley.",
+                            "ingredients": [
+                                {
+                                    "id": 6016,
+                                    "name": "cream of chicken soup",
+                                    "localizedName": "cream of chicken soup",
+                                    "image": "cream-of-chicken-soup.jpg"
+                                },
+                                {
+                                    "id": 6194,
+                                    "name": "chicken broth",
+                                    "localizedName": "chicken broth",
+                                    "image": "chicken-broth.png"
+                                },
+                                {
+                                    "id": 11297,
+                                    "name": "parsley",
+                                    "localizedName": "parsley",
+                                    "image": "parsley.jpg"
+                                },
+                                {
+                                    "id": 1001,
+                                    "name": "butter",
+                                    "localizedName": "butter",
+                                    "image": "butter-sliced.jpg"
+                                },
+                                {
+                                    "id": 11282,
+                                    "name": "onion",
+                                    "localizedName": "onion",
+                                    "image": "brown-onion.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 3,
+                            "step": "Cook on high for 4-6 hours or low for 8-1",
+                            "ingredients": [],
+                            "equipment": [],
+                            "length": {
+                                "number": 360,
+                                "unit": "minutes"
+                            }
+                        },
+                        {
+                            "number": 4,
+                            "step": "30 minutes before chicken is finished cooking, cut biscuits into 9 pieces and add to crock pot. Gently stir to coat biscuits. Continue to cook for 30 minutes, then serve!",
+                            "ingredients": [
+                                {
+                                    "id": 18009,
+                                    "name": "biscuits",
+                                    "localizedName": "biscuits",
+                                    "image": "buttermilk-biscuits.jpg"
+                                },
+                                {
+                                    "id": 5006,
+                                    "name": "whole chicken",
+                                    "localizedName": "whole chicken",
+                                    "image": "whole-chicken.jpg"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404718,
+                                    "name": "slow cooker",
+                                    "localizedName": "slow cooker",
+                                    "image": "slow-cooker.jpg"
+                                }
+                            ],
+                            "length": {
+                                "number": 60,
+                                "unit": "minutes"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "originalId": null,
+            "spoonacularSourceUrl": "https://spoonacular.com/crockpot-chicken-and-dumplings-640886"
+        },
+        {
+            "vegetarian": false,
+            "vegan": false,
+            "glutenFree": false,
+            "dairyFree": false,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 7,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 13,
+            "spoonacularScore": 18.0,
+            "healthScore": 1.0,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 26.2,
+            "extendedIngredients": [
+                {
+                    "id": 20081,
+                    "aisle": "Baking",
+                    "image": "flour.png",
+                    "consistency": "solid",
+                    "name": "flour",
+                    "nameClean": "wheat flour",
+                    "original": "3 cups flour – sifted",
+                    "originalName": "flour – sifted",
+                    "amount": 3.0,
+                    "unit": "cups",
+                    "meta": [
+                        "sifted"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 3.0,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 709.764,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 12155,
+                    "aisle": "Nuts;Baking",
+                    "image": "walnuts.jpg",
+                    "consistency": "solid",
+                    "name": "walnut halves",
+                    "nameClean": "walnuts",
+                    "original": "1 cup whole walnuts – ground fine in food processor",
+                    "originalName": "whole walnuts – ground fine in food processor",
+                    "amount": 1.0,
+                    "unit": "cup",
+                    "meta": [
+                        "whole",
+                        "fine"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1.0,
+                            "unitShort": "cup",
+                            "unitLong": "cup"
+                        },
+                        "metric": {
+                            "amount": 236.588,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 18371,
+                    "aisle": "Baking",
+                    "image": "white-powder.jpg",
+                    "consistency": "solid",
+                    "name": "baking powder",
+                    "nameClean": "low sodium baking powder",
+                    "original": "1 tsp baking powder",
+                    "originalName": "baking powder",
+                    "amount": 1.0,
+                    "unit": "tsp",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1.0,
+                            "unitShort": "tsp",
+                            "unitLong": "teaspoon"
+                        },
+                        "metric": {
+                            "amount": 1.0,
+                            "unitShort": "tsp",
+                            "unitLong": "teaspoon"
+                        }
+                    }
+                },
+                {
+                    "id": 19335,
+                    "aisle": "Baking",
+                    "image": "sugar-in-bowl.png",
+                    "consistency": "solid",
+                    "name": "sugar",
+                    "nameClean": "sugar",
+                    "original": "1 cup sugar",
+                    "originalName": "sugar",
+                    "amount": 1.0,
+                    "unit": "cup",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1.0,
+                            "unitShort": "cup",
+                            "unitLong": "cup"
+                        },
+                        "metric": {
+                            "amount": 236.588,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 1001,
+                    "aisle": "Milk, Eggs, Other Dairy",
+                    "image": "butter-sliced.jpg",
+                    "consistency": "solid",
+                    "name": "butter",
+                    "nameClean": "butter",
+                    "original": "¾ cup butter",
+                    "originalName": "butter",
+                    "amount": 0.75,
+                    "unit": "cup",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 0.75,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 177.441,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 1123,
+                    "aisle": "Milk, Eggs, Other Dairy",
+                    "image": "egg.png",
+                    "consistency": "solid",
+                    "name": "eggs",
+                    "nameClean": "egg",
+                    "original": "2 eggs",
+                    "originalName": "eggs",
+                    "amount": 2.0,
+                    "unit": "",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2.0,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 2.0,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 2050,
+                    "aisle": "Baking",
+                    "image": "vanilla-extract.jpg",
+                    "consistency": "liquid",
+                    "name": "vanilla",
+                    "nameClean": "vanilla extract",
+                    "original": "1 tsp. vanilla",
+                    "originalName": "vanilla",
+                    "amount": 1.0,
+                    "unit": "tsp",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1.0,
+                            "unitShort": "tsp",
+                            "unitLong": "teaspoon"
+                        },
+                        "metric": {
+                            "amount": 1.0,
+                            "unitShort": "tsp",
+                            "unitLong": "teaspoon"
+                        }
+                    }
+                },
+                {
+                    "id": 10419172,
+                    "aisle": "Baking",
+                    "image": "red-jello.png",
+                    "consistency": "solid",
+                    "name": "cherry gelatin",
+                    "nameClean": "cherry flavored gelatin",
+                    "original": "1.4 oz. package cherry gelatin",
+                    "originalName": "package cherry gelatin",
+                    "amount": 1.4,
+                    "unit": "oz",
+                    "meta": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1.4,
+                            "unitShort": "oz",
+                            "unitLong": "ounces"
+                        },
+                        "metric": {
+                            "amount": 39.689,
+                            "unitShort": "g",
+                            "unitLong": "grams"
+                        }
+                    }
+                }
+            ],
+            "id": 646825,
+            "title": "Holiday Cookies",
+            "readyInMinutes": 45,
+            "servings": 24,
+            "sourceUrl": "https://www.foodista.com/recipe/K88VYRLF/holiday-cookies",
+            "image": "https://spoonacular.com/recipeImages/646825-556x370.jpg",
+            "imageType": "jpg",
+            "summary": "The recipe Holiday Cookies can be made <b>in around around 45 minutes</b>. This recipe serves 24. One serving contains <b>184 calories</b>, <b>3g of protein</b>, and <b>9g of fat</b>. For <b>26 cents per serving</b>, this recipe <b>covers 4%</b> of your daily requirements of vitamins and minerals. This recipe from Foodista requires cherry gelatin, vanilla, eggs, and sugar. It works well as a dessert. 13 people have tried and liked this recipe. All things considered, we decided this recipe <b>deserves a spoonacular score of 14%</b>. This score is rather bad. Users who liked this recipe also liked <a href=\\"https://spoonacular.com/recipes/holiday-cookies-one-dough-three-holiday-cookies-313532\\">Holiday Cookies: One Dough, Three Holiday Cookies</a>, <a href=\\"https://spoonacular.com/recipes/chocolate-mint-avocado-cookies-+-5-healthy-holiday-cookies-832090\\">Chocolate Mint Avocado Cookies + 5 Healthy Holiday Cookies</a>, and <a href=\\"https://spoonacular.com/recipes/holiday-star-cookies-462649\\">Holiday Star Cookies</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "dessert"
+            ],
+            "diets": [],
+            "occasions": [],
+            "instructions": "Preheat Oven 350 degrees:\nIn a large bowl combine the butter and sugar and mix until smooth. Add eggs and vanilla and continue to mix on low.\nCombine the baking powder with the flour and add slowly, while the mixer is on low, to the butter mixture. Add the finely chopped walnuts and the package of cherry gelatin to the batter.\nForm the dough into a disc and roll out to a quarter inch thickness. Using cookie cutters form into your favorite holiday shapes.\nPlace cookies on parchment paper and bake 10 to 12 minutes or until slightly golden on edges.",
+            "analyzedInstructions": [
+                {
+                    "name": "Preheat Oven 350 degrees",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "In a large bowl combine the butter and sugar and mix until smooth.",
+                            "ingredients": [
+                                {
+                                    "id": 1001,
+                                    "name": "butter",
+                                    "localizedName": "butter",
+                                    "image": "butter-sliced.jpg"
+                                },
+                                {
+                                    "id": 19335,
+                                    "name": "sugar",
+                                    "localizedName": "sugar",
+                                    "image": "sugar-in-bowl.png"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404783,
+                                    "name": "bowl",
+                                    "localizedName": "bowl",
+                                    "image": "bowl.jpg"
+                                }
+                            ]
+                        },
+                        {
+                            "number": 2,
+                            "step": "Add eggs and vanilla and continue to mix on low.",
+                            "ingredients": [
+                                {
+                                    "id": 1052050,
+                                    "name": "vanilla",
+                                    "localizedName": "vanilla",
+                                    "image": "vanilla.jpg"
+                                },
+                                {
+                                    "id": 1123,
+                                    "name": "egg",
+                                    "localizedName": "egg",
+                                    "image": "egg.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 3,
+                            "step": "Combine the baking powder with the flour and add slowly, while the mixer is on low, to the butter mixture.",
+                            "ingredients": [
+                                {
+                                    "id": 18369,
+                                    "name": "baking powder",
+                                    "localizedName": "baking powder",
+                                    "image": "white-powder.jpg"
+                                },
+                                {
+                                    "id": 1001,
+                                    "name": "butter",
+                                    "localizedName": "butter",
+                                    "image": "butter-sliced.jpg"
+                                },
+                                {
+                                    "id": 20081,
+                                    "name": "all purpose flour",
+                                    "localizedName": "all purpose flour",
+                                    "image": "flour.png"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404726,
+                                    "name": "blender",
+                                    "localizedName": "blender",
+                                    "image": "blender.png"
+                                }
+                            ]
+                        },
+                        {
+                            "number": 4,
+                            "step": "Add the finely chopped walnuts and the package of cherry gelatin to the batter.",
+                            "ingredients": [
+                                {
+                                    "id": 10112155,
+                                    "name": "walnut pieces",
+                                    "localizedName": "walnut pieces",
+                                    "image": "walnuts.jpg"
+                                },
+                                {
+                                    "id": 10419172,
+                                    "name": "cherry flavored gelatin",
+                                    "localizedName": "cherry flavored gelatin",
+                                    "image": "red-jello.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 5,
+                            "step": "Form the dough into a disc and roll out to a quarter inch thickness. Using cookie cutters form into your favorite holiday shapes.",
+                            "ingredients": [
+                                {
+                                    "id": 10118192,
+                                    "name": "cookies",
+                                    "localizedName": "cookies",
+                                    "image": "shortbread-cookies.jpg"
+                                },
+                                {
+                                    "id": 0,
+                                    "name": "dough",
+                                    "localizedName": "dough",
+                                    "image": "pizza-dough"
+                                },
+                                {
+                                    "id": 0,
+                                    "name": "roll",
+                                    "localizedName": "roll",
+                                    "image": "dinner-yeast-rolls.jpg"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 221429,
+                                    "name": "cookie cutter",
+                                    "localizedName": "cookie cutter",
+                                    "image": "cookie-cutters.jpg"
+                                }
+                            ]
+                        },
+                        {
+                            "number": 6,
+                            "step": "Place cookies on parchment paper and bake 10 to 12 minutes or until slightly golden on edges.",
+                            "ingredients": [
+                                {
+                                    "id": 10118192,
+                                    "name": "cookies",
+                                    "localizedName": "cookies",
+                                    "image": "shortbread-cookies.jpg"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404770,
+                                    "name": "baking paper",
+                                    "localizedName": "baking paper",
+                                    "image": "baking-paper.jpg"
+                                },
+                                {
+                                    "id": 404784,
+                                    "name": "oven",
+                                    "localizedName": "oven",
+                                    "image": "oven.jpg"
+                                }
+                            ],
+                            "length": {
+                                "number": 10,
+                                "unit": "minutes"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "originalId": null,
+            "spoonacularSourceUrl": "https://spoonacular.com/holiday-cookies-646825"
+        }
+    ]
+}
