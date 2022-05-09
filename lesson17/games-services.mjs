@@ -2,12 +2,8 @@
 // Implement all games handling logic
 
 
-const games = [
-    {id : 1, name : "game1", description: "game1 description"},
-    {id : 2, text : "game2", description: "game2 description"},
-]
 
-let nextId = 3
+import gamesData from './games-data_mem.mjs'
 
 export default {
     getGames : getGames,
@@ -18,31 +14,35 @@ export default {
 }
 
 async function getGames(){
-    return Promise.resolve(games)
+    return gamesData.getGames()
 }
 
 
 async function getGame(id){
     if(!id) return Promise.reject("Invalid ID")
-    const game = games.find(t => t.id == id)
-    if(!game) return Promise.reject("Not Found")
-    return Promise.resolve(game)
+    return gamesData.getGame(id)
 }
 
 async function createGame(name, description){
     if(!name) return Promise.reject("Invalid name for a game")
-    const newId = nextId++
-    const newGame = {id : newId, name : name, description: description}
-    games.push(newGame)
-    return Promise.resolve(newGame)
-    
+    const newGame = { name : name, description: description }
+    return gamesData.createGame(newGame)
 }
 
 async function updateGame(id, name, description){
-    //return Promise.resolve("updateGame")
-    return "updateGame"
+    if(!id) return Promise.reject("Invalid id")
+    if(!name) return Promise.reject("Invalid name for a game")
+    const game = await gamesData.getGame(id)
+    const newName = name || game.name
+    const newDescription = description || game.description
+
+    //const newGame = {id: id, name: name, description: description} 
+    // The following line defines the same as previous line, with less code
+    const newGame = {id, name: newName, description: newDescription} 
+    return gamesData.updateGame(newGame)
 }
 
 async function deleteGame(id){ 
-    return Promise.resolve("deleteGame")
+    if(!id) return Promise.reject("Invalid id")
+    return gamesData.deleteGame(id)
 }
