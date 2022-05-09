@@ -197,7 +197,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Game'
+              $ref: '#/components/schemas/NewGame'
         required: false
       responses:
         201:
@@ -254,7 +254,7 @@ components:
           type: integer
     NewGame:
       required:
-      - text
+      - name
       - userId
       type: object
       properties:
@@ -266,7 +266,6 @@ components:
           example: Fifa game description
         userId:
           type: integer
-
     NewUser:
       required:
       - userName
