@@ -3,41 +3,48 @@
 // Have the functions that handle HTTP requests
 
 import express from 'express'
-import services from './games-services.mjs'
+import httpErrors from './http-errors.mjs'
 
-const app = express.Router()
-export default app
+export default function(services) {
+    const app = express.Router()
 
-app.get('/api/games', getGames)           // Get all jokes
-app.get('/api/games/:id', getGame)        // Get a joke details
-app.delete('/api/games/:id', deleteGame)  // Delete a joke
-app.put('/api/games/:id', updateGame)     // Update a joke
-app.post('/api/games', createGame)        // Delete a joke
+    app.get('/api/games', handlerWrapper(getGames))           // Get all jokes
+    app.get('/api/games/:id', handlerWrapper(getGame))        // Get a joke details
+    app.delete('/api/games/:id', handlerWrapper(deleteGame))  // Delete a joke
+    app.put('/api/games/:id', handlerWrapper(updateGame))     // Update a joke
+    app.post('/api/games', handlerWrapper(createGame))        // Delete a joke
 
-async function getGames(req, resp) {
-    //rsp.json(await services.getGames())
-    
-    services.getGames()
-        .then(games => resp.json(games))
+    return app
+
+
+    function handlerWrapper(handler) {
+        return async function(req, rsp) {
+            try {
+                rsp.json(await handler(req, rsp))
+            } catch(e) {
+               httpErrors.handleError(e, resp) 
+            }    
+        }
+    }
+
+    async function getGames(req, resp) {
+        return await services.getGames()
+    }
+
+    async function getGame(req, resp) {
+        await services.getGame(req.params.id)
+    }
+
+    async function updateGame(req, resp) {  
+        await services.updateGame(req.params.id, req.body.name, req.body.description)
+    }
+
+    async function createGame(req, resp) {
+        resp.status(201)
+        return await services.createGame(req.body.name, req.body.description)
+    }
+
+    async function deleteGame(req, resp) {
+        await services.deleteGame(req.params.id)
+    }
 }
-
-async function getGame(req, resp) {
-    resp.json(await services.getGame(req.params.id))
-}
-
-async function updateGame(req, resp) {
-    resp.json(await services.updateGame(req.params.id, req.body.name, req.body.description))
-
-}
-
-async function createGame(req, resp) {
-    resp
-        .status(201)
-        .json(await services.createGame(req.body.name, req.body.description))
-}
-
-async function deleteGame(req, resp) {
-    resp.json(await services.deleteGame(req.params.id))
-}
-
-
