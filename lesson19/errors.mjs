@@ -4,7 +4,9 @@
 
 export const errorCodes = {
     INVALID_ARGUMENT: 1000,
-    NOT_FOUND: 1001
+    NOT_FOUND: 1001,
+    INVALID_TOKEN: 1002,
+    INVALID_USER: 1003
 }
 
 export const errors = {
@@ -14,10 +16,24 @@ export const errors = {
             message: `Invalid ${argumentName}`
         }
     },
-    NOT_FOUND: () => {
+    NOT_FOUND: (what = '') => {
+        what = what ? what + ' ' : what
         return {
             code: errorCodes.NOT_FOUND,
-            message: `Not found`
+            message: `${what}Not found`
+        }
+    },
+    INVALID_TOKEN: () => {
+        return {
+            code: errorCodes.INVALID_TOKEN,
+            message: `Invalid Token`
+        }
+    },
+
+    INVALID_USER: () => {
+        return {
+            code: errorCodes.INVALID_USER,
+            message: `Invalid User`
         }
     }
 }

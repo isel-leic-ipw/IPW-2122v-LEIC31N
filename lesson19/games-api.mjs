@@ -19,8 +19,22 @@ export default function(services) {
     return app
 
 
+    function setUserToken(req) {
+        let token = req.get("Authorization")
+        if(token) {
+            token = token.split(' ')[1]
+            let buff = Buffer.from(token, 'base64');
+            req.token = buff.toString('ascii').split(':')[0]
+            console.log(req.token)
+        }
+    }
+    
+
+
     function handlerWrapper(handler) {
         return async function(req, rsp) {
+            setUserToken(req)
+            console.log(req.token)
             try {
                 rsp.json(await handler(req, rsp))
             } catch(e) {
@@ -31,23 +45,23 @@ export default function(services) {
     }
 
     async function getGames(req, resp) {
-        return await services.getGames()
+        return await services.getGames(req.token)
     }
 
     async function getGame(req, resp) {
-        await services.getGame(req.params.id)
+        await services.getGame(req.token, req.params.id)
     }
 
     async function updateGame(req, resp) {  
-        await services.updateGame(req.params.id, req.body.name, req.body.description)
+        await services.updateGame(req.token, req.params.id, req.body.name, req.body.description)
     }
 
     async function createGame(req, resp) {
         resp.status(201)
-        return await services.createGame(req.body.name, req.body.description)
+        return await services.createGame(req.token, req.body.name, req.body.description)
     }
 
     async function deleteGame(req, resp) {
-        await services.deleteGame(req.params.id)
+        await services.deleteGame(req.token, req.params.id)
     }
 }

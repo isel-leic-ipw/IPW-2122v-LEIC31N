@@ -7,11 +7,15 @@ import cors from 'cors'
 
 // Import gamesApi and all its direct and indirect dependencies
 //import dataInit from './games-data_elastic.mjs'
-import dataInit from './games-data_mem.mjs'
-const gamesData = dataInit()
+import gamesDataInit from './games-data_mem.mjs'
+const gamesData = gamesDataInit()
+
+import usersDataInit from './users-data_mem.mjs'
+const usersData = usersDataInit()
+
 
 import servicesInit from './games-services.mjs'
-const services = servicesInit(gamesData)
+const services = servicesInit(gamesData, usersData)
 
 // games-api returns router
 import gamesApiInit from './games-api.mjs'

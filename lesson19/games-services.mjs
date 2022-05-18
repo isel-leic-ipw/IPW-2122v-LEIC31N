@@ -4,50 +4,71 @@
 import { errors } from './errors.mjs'
 
 
-export default function(gamesData)  {
+export default function(gamesData, usersData)  {
     if(!gamesData)
         throw "Invalid games data object"    
+    if(!usersData)
+        throw "Invalid users data object"    
     return {
-        getGames : getGames,
-        getGame : getGame,
-        updateGame : updateGame,
-        createGame : createGame,
-        deleteGame : deleteGame
-    }
-
-    async function getGames(){
-        return gamesData.getGames()
+        getGames : validateUser(getGames),
+        getGame : validateUser(getGame),
+        updateGame : validateUser(updateGame),
+        createGame : validateUser(createGame),
+        deleteGame : validateUser(deleteGame)
     }
 
 
-    async function getGame(id){
+    function validateUser(f) {
+        return async function(...args) {
+            const token = args[0]
+            // Validate if it is a valid string for a token
+            if(!token || token.constructor !== String) {
+                return Promise.reject(errors.INVALID_TOKEN())
+                // TODO: Validate if the string corresponds to a UUID
+            }
+
+            return f.apply(null, args)
+        }
+    }
+
+    async function getGames(userToken){
+        return gamesData.getGames(userToken)
+    }
+
+
+    async function getGame(userToken, id){
         if(isNaN(Number(id))) 
             return Promise.reject(errors.INVALID_ARGUMENT("id"))   
             //throw errors.INVALID_ID   
-        return gamesData.getGame(id)
+        return gamesData.getGame(userToken, id)
     }
 
-    async function createGame(name, description){
+    async function createGame(userToken, name, description){
         if(!name) return Promise.reject(errors.INVALID_ARGUMENT("name"))
-        const newGame = { name : name, description: description }
+        
+        const user = await usersData.getUserByToken(userToken)
+        const newGame = { name : name, description: description, ownerUser: user.id  }
         return gamesData.createGame(newGame)
     }
 
-    async function updateGame(id, name, description){
+    async function updateGame(userToken, id, name, description){
         if(!id) throw errors.INVALID_ARGUMENT("id")
         if(!name) throw errors.INVALID_ARGUMENT("name")
-        const game = await gamesData.getGame(id)
-        const newName = name || game.name
-        const newDescription = description || game.description
 
-        //const newGame = {id: id, name: name, description: description} 
-        // The following line defines the same as previous line, with less code
-        const newGame = {id, name: newName, description: newDescription} 
+        const game = await gamesData.getGame(id)
+        const user = await usersData.getUserByToken(userToken)
+        if(game.ownerUser != user.userId) {
+            throw errors.INVALID_USER()
+        }
+
+        const newGame = {id, name, description, ownerUser: user.userId} 
         return gamesData.updateGame(newGame)
     }
 
-    async function deleteGame(id){ 
+    async function deleteGame(userToken, id){ 
         if(!id) return Promise.reject(errors.INVALID_ARGUMENT("id"))
         return gamesData.deleteGame(id)
     }
 }
+
+
