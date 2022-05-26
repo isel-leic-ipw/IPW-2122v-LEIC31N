@@ -6,9 +6,9 @@ import { errors } from './errors.mjs'
 
 const GAMES = [
     { id: 1, name: "game1", description: "game1 description", ownerUser: 100 },
-    { id: 2, text: "game2", description: "game2 description" , ownerUser: 101 },
+    { id: 2, name: "game2", description: "game2 description" , ownerUser: 101 },
     { id: 3, name: "game3", description: "game3 description", ownerUser: 101 },
-    { id: 4, text: "game4", description: "game4 description" , ownerUser: 101 },
+    { id: 4, name: "game4", description: "game4 description" , ownerUser: 101 },
 ]
 
 let nextId = 3
@@ -22,11 +22,11 @@ export default function () {
         deleteGame: deleteGame
     }
 
-    async function getGames() {
+    async function getGames(userToken) {
         return Promise.resolve(GAMES)
     }
 
-    async function getGame(id) {
+    async function getGame(userToken, id) {
         const game = GAMES.find(g => g.id == id)
         if (!game) throw errors.NOT_FOUND()
         return Promise.resolve(game)

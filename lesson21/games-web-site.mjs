@@ -20,13 +20,8 @@ export default function(services) {
 
 
     function setUserToken(req) {
-        let token = req.get("Authorization")
-        if(token) {
-            token = token.split(' ')[1]
-            let buff = Buffer.from(token, 'base64');
-            req.token = buff.toString('ascii').split(':')[0]
-            console.log(req.token)
-        }
+        // Hammer time. Frankenstein here gets even uglier....
+        req.token = '0b115b6e-8fcd-4b66-ac26-33392dcb9340'
     }
     
 
@@ -36,7 +31,7 @@ export default function(services) {
             setUserToken(req)
             console.log(req.token)
             try {
-                rsp.json(await handler(req, rsp))
+                handler(req, rsp)
             } catch(e) {
                const error = handleError(e) 
                rsp.status(error.status).json(error.body)
@@ -45,11 +40,13 @@ export default function(services) {
     }
 
     async function getGames(req, resp) {
-        return await services.getGames(req.token)
+        const games = await services.getGames(req.token)
+        resp.render('games', {g: games})
     }
 
     async function getGame(req, resp) {
-        await services.getGame(req.token, req.params.id)
+        const game = await services.getGame(req.token, req.params.id)
+        resp.render('game', game)
     }
 
     async function updateGame(req, resp) {  
