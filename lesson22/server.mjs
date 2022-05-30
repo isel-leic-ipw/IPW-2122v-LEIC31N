@@ -5,6 +5,7 @@ import express from 'express'
 import cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
+import hbs from 'hbs';
 
 
 // Import gamesApi and all its direct and indirect dependencies
@@ -41,7 +42,7 @@ const __dirname = path.dirname(__filename);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-//require('hbs').registerPartials(__dirname + '/views/partials');
+hbs.registerPartials(__dirname + '/views/partials');
 
 
 app.use('/api', gamesApi)

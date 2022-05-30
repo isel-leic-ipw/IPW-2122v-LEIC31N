@@ -10,11 +10,12 @@ import handleError from './http-errors.mjs'
 export default function(services) {
     const app = express.Router()
 
-    app.get('/games', handlerWrapper(getGames))           // Get all jokes
-    app.get('/games/:id', handlerWrapper(getGame))        // Get a joke details
-    app.delete('/games/:id', handlerWrapper(deleteGame))  // Delete a joke
-    app.put('/games/:id', handlerWrapper(updateGame))     // Update a joke
-    app.post('/games', handlerWrapper(createGame))        // Delete a joke
+    app.get('/', home)           // Get all games
+    app.get('/games', handlerWrapper(getGames))           // Get all game
+    app.get('/games/:id', handlerWrapper(getGame))        // Get a game details
+    app.delete('/games/:id', handlerWrapper(deleteGame))  // Delete a game
+    app.put('/games/:id', handlerWrapper(updateGame))     // Update a game
+    app.post('/games', handlerWrapper(createGame))        // Delete a game
 
     return app
 
@@ -24,8 +25,6 @@ export default function(services) {
         req.token = '0b115b6e-8fcd-4b66-ac26-33392dcb9340'
     }
     
-
-
     function handlerWrapper(handler) {
         return async function(req, rsp) {
             setUserToken(req)
@@ -39,14 +38,18 @@ export default function(services) {
         }
     }
 
+    async function home(req, resp) {
+        resp.render('home', {home: true})
+    }
+
     async function getGames(req, resp) {
         const games = await services.getGames(req.token)
-        resp.render('games', {g: games})
+        resp.render('games', {g: games, title: 'All Games', games: true})
     }
 
     async function getGame(req, resp) {
         const game = await services.getGame(req.token, req.params.id)
-        resp.render('game', game)
+        resp.render('game', {g: game, title: `Game ${game.name}`, game: true})
     }
 
     async function updateGame(req, resp) {  
