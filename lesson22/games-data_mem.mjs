@@ -11,7 +11,7 @@ const GAMES = [
     { id: 4, name: "game4", description: "game4 description" , ownerUser: 101 },
 ]
 
-let nextId = 3
+let nextId = GAMES.length+1
 
 export default function () {
     return {
@@ -32,9 +32,9 @@ export default function () {
         return Promise.resolve(game)
     }
 
-    async function createGame(text) {
-        const newId = nextId++
-        const newGame = { id: newId, text: text }
+    async function createGame(game) {
+        const newGame = Object.assign(game)
+        newGame.id = nextId++
         GAMES.push(newGame)
         return Promise.resolve(newGame)
 

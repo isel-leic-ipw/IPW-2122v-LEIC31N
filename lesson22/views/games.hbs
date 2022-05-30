@@ -1,7 +1,25 @@
+
+<style>
+    img { width: 30px;}
+</style>
+
+
 {{#each g}}
+<form method="POST" action="/games/{{this.id}}/delete">
+<div class="row">
+  <div class="col">
     <h3>{{this.name}}</h3>
-    <p>
-        {{this.description}}
-    </p>
+    <p>{{this.description}}</p>
+    
+  </div>
+  <div class="col">
+    <button><img src="https://i.gadgets360cdn.com/large/delete_apps_thumb_1532676846539.jpg"></button>
+  </div>
+
+</div>
+    
+    
+</form>
     <hr>
 {{/each}}
+

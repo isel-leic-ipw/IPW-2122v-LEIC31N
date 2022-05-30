@@ -10,11 +10,16 @@ import handleError from './http-errors.mjs'
 export default function(services) {
     const app = express.Router()
 
-    app.get('/', home)           // Get all games
+    app.get('/', home)                                    // Get all games
+    app.get('/games/create', getCreateGameForm)           // Get a form to create a game
     app.get('/games', handlerWrapper(getGames))           // Get all game
     app.get('/games/:id', handlerWrapper(getGame))        // Get a game details
-    app.delete('/games/:id', handlerWrapper(deleteGame))  // Delete a game
-    app.put('/games/:id', handlerWrapper(updateGame))     // Update a game
+
+    //app.delete('/games/:id', handlerWrapper(deleteGame))  // Delete a game
+    // The game deletion should be a delete method, but to overcome forms method limitation, we must use a POST
+    app.post('/games/:id/delete', handlerWrapper(deleteGame))  // Delete a game
+
+    app.post('/games/:id/update', handlerWrapper(updateGame))     // Update a game
     app.post('/games', handlerWrapper(createGame))        // Delete a game
 
     return app
@@ -29,8 +34,13 @@ export default function(services) {
         return async function(req, rsp) {
             setUserToken(req)
             console.log(req.token)
+
+            // This code is equivalent to the following code with async/await
+            // handler(req,rsp).catch(e => { const error = handleError(e) 
+            //     rsp.status(error.status).json(error.body)})
+
             try {
-                handler(req, rsp)
+                 await handler(req, rsp)
             } catch(e) {
                const error = handleError(e) 
                rsp.status(error.status).json(error.body)
@@ -42,6 +52,10 @@ export default function(services) {
         resp.render('home', {home: true})
     }
 
+    async function getCreateGameForm(req, resp) {
+        resp.render('createGame', {createGame: true})
+    }
+
     async function getGames(req, resp) {
         const games = await services.getGames(req.token)
         resp.render('games', {g: games, title: 'All Games', games: true})
@@ -49,7 +63,7 @@ export default function(services) {
 
     async function getGame(req, resp) {
         const game = await services.getGame(req.token, req.params.id)
-        resp.render('game', {g: game, title: `Game ${game.name}`, game: true})
+        return resp.render('game', {g: game, title: `Game ${game.name}`, game: true})
     }
 
     async function updateGame(req, resp) {  
@@ -57,11 +71,12 @@ export default function(services) {
     }
 
     async function createGame(req, resp) {
-        resp.status(201)
-        return await services.createGame(req.token, req.body.name, req.body.description)
+        await services.createGame(req.token, req.body.name, req.body.description)
+        resp.redirect('/games')
     }
 
     async function deleteGame(req, resp) {
         await services.deleteGame(req.token, req.params.id)
+        resp.redirect('/games')
     }
 }
