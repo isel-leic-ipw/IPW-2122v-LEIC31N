@@ -27,7 +27,8 @@ export default function(services) {
 
     function setUserToken(req) {
         // Hammer time. Frankenstein here gets even uglier....
-        req.token = '0b115b6e-8fcd-4b66-ac26-33392dcb9340'
+        //req.token = '0b115b6e-8fcd-4b66-ac26-33392dcb9340'
+        req.token = '3dfd8596-cfd3-431d-8e36-f0fc4c64f364'
     }
     
     function handlerWrapper(handler) {

@@ -2,7 +2,7 @@
 // Transform application errors in HTTP errors
 
 
-import { errorCodes } from "./errors.mjs";
+import { errorCodes } from "../errors.mjs";
 
 // The exported function receives an application error and returns an object with status and body properties
 export default function (e) {

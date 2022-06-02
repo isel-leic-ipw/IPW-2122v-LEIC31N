@@ -10,22 +10,22 @@ import hbs from 'hbs';
 
 // Import gamesApi and all its direct and indirect dependencies
 //import dataInit from './games-data_elastic.mjs'
-import gamesDataInit from './games-data_mem.mjs'
+import gamesDataInit from './data/games-data_elastic.mjs'
 const gamesData = gamesDataInit()
 
-import usersDataInit from './users-data_mem.mjs'
+import usersDataInit from './data/users-data_mem.mjs'
 const usersData = usersDataInit()
 
 
-import servicesInit from './games-services.mjs'
+import servicesInit from './services/games-services.mjs'
 const services = servicesInit(gamesData, usersData)
 
 // games-api returns router
-import gamesApiInit from './games-api.mjs'
+import gamesApiInit from './api/games-api.mjs'
 const gamesApi = gamesApiInit(services)
 
 
-import gamesWebSiteInit from './games-web-site.mjs'
+import gamesWebSiteInit from './api/games-web-site.mjs'
 const gamesWebSite = gamesWebSiteInit(services)
 
 

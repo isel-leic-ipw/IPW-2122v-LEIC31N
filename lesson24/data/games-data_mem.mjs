@@ -2,7 +2,7 @@
 // File responsibilities
 // Implement data access to memory storage
 
-import { errors } from './errors.mjs'
+import { errors } from '../errors.mjs'
 
 const GAMES = [
     { id: 1, name: "game1", description: "game1 description", ownerUser: 100 },
@@ -22,11 +22,11 @@ export default function () {
         deleteGame: deleteGame
     }
 
-    async function getGames(userToken) {
+    async function getGames(userId) {
         return Promise.resolve(GAMES)
     }
 
-    async function getGame(userToken, id) {
+    async function getGame(userId, id) {
         const game = GAMES.find(g => g.id == id)
         if (!game) throw errors.NOT_FOUND()
         return Promise.resolve(game)
@@ -56,6 +56,6 @@ export default function () {
         }
         const deletedGame = GAMES[idx]
         GAMES.splice(idx, 1)
-        return deletedGame
+        return deletedGame.id
     }
 }

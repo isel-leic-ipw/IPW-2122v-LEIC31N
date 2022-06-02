@@ -2,7 +2,7 @@
 // File responsibilities
 // Implement data access to memory storage
 
-import { errors } from './errors.mjs'
+import { errors } from '../errors.mjs'
 
 
 const USERS = [
