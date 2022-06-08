@@ -35,8 +35,8 @@ export default function(gamesData, usersData)  {
         }
     }
 
-    async function getGames(userId){
-        return gamesData.getGames(userId)
+    async function getGames(userId, nameFilter){
+        return gamesData.getGames(userId, nameFilter)
     }
 
 

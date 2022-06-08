@@ -4,6 +4,8 @@
 
 import express from 'express'
 
+const SITE_TRACKING_COOKIE = "site-tracking"
+const USER_TOKEN_COOKIE = "user-token"
 
 import handleError from './http-errors.mjs'
 
@@ -25,23 +27,31 @@ export default function(services) {
     return app
 
 
-    function setUserToken(req) {
+    function setUserToken(req, rsp) {
         // Hammer time. Frankenstein here gets even uglier....
         //req.token = '0b115b6e-8fcd-4b66-ac26-33392dcb9340'
-        req.token = '3dfd8596-cfd3-431d-8e36-f0fc4c64f364'
+
+        const tokenCookie = req.cookies[USER_TOKEN_COOKIE]
+        if(tokenCookie) {
+            req.token = tokenCookie
+        } else {
+            req.token = '3dfd8596-cfd3-431d-8e36-f0fc4c64f364'
+            rsp.cookie(USER_TOKEN_COOKIE, req.token)
+        }
     }
     
     function handlerWrapper(handler) {
         return async function(req, rsp) {
-            setUserToken(req)
+            setUserToken(req,rsp)
+            
             console.log(req.token)
-
+            rsp.cookie(SITE_TRACKING_COOKIE, `${req.cookies[SITE_TRACKING_COOKIE]||""}-${req.path}`)
             // This code is equivalent to the following code with async/await
             // handler(req,rsp).catch(e => { const error = handleError(e) 
             //     rsp.status(error.status).json(error.body)})
 
             try {
-                 await handler(req, rsp)
+                await handler(req, rsp)
             } catch(e) {
                const error = handleError(e) 
                rsp.status(error.status).json(error.body)
@@ -58,7 +68,7 @@ export default function(services) {
     }
 
     async function getGames(req, resp) {
-        const games = await services.getGames(req.token)
+        let games = await services.getGames(req.token, req.query.search)
         resp.render('games', {g: games, title: 'All Games', games: true})
     }
 

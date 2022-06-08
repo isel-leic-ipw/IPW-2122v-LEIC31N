@@ -9,6 +9,10 @@ const GAMES = [
     { id: 2, name: "game2", description: "game2 description" , ownerUser: 101 },
     { id: 3, name: "game3", description: "game3 description", ownerUser: 101 },
     { id: 4, name: "game4", description: "game4 description" , ownerUser: 101 },
+    { id: 5, name: "G1", description: "game1 description", ownerUser: 100 },
+    { id: 6, name: "G2", description: "game2 description" , ownerUser: 101 },
+    { id: 7, name: "G2", description: "game3 description", ownerUser: 101 },
+    { id: 8, name: "game4", description: "game4 description" , ownerUser: 100 },
 ]
 
 let nextId = GAMES.length+1
@@ -22,8 +26,12 @@ export default function () {
         deleteGame: deleteGame
     }
 
-    async function getGames(userId) {
-        return Promise.resolve(GAMES)
+    async function getGames(userId, nameFilter) {
+        return Promise.resolve(
+            nameFilter 
+                ? GAMES.filter(g => g.name.includes(nameFilter)) 
+                : GAMES)
+        
     }
 
     async function getGame(userId, id) {

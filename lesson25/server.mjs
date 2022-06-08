@@ -6,12 +6,16 @@ import cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
 import hbs from 'hbs';
+import cookieParser from 'cookie-parser';
 
 
 // Import gamesApi and all its direct and indirect dependencies
-//import dataInit from './games-data_elastic.mjs'
-import gamesDataInit from './data/games-data_elastic.mjs'
+import gamesDataInit from './data/games-data_mem.mjs'
+//import gamesDataInit from './data/games-data_elastic.mjs'
+
 const gamesData = gamesDataInit()
+
+
 
 import usersDataInit from './data/users-data_mem.mjs'
 const usersData = usersDataInit()
@@ -36,6 +40,7 @@ const PORT = 1904
 app.use(cors())
 app.use(express.json()) // Register middleware to handle request bodies with json format
 app.use(express.urlencoded()) // Register middleware to handle request bodies with json format
+app.use(cookieParser()) // Register middleware to handle request bodies with json format
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

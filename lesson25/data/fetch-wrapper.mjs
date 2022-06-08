@@ -26,15 +26,15 @@ export async function post(uri, body) {
 
 async function fetchInternal(uri, init) {
     init = init || {}
-    console.log(`Fetching from ${uri} with these options`, init)
+    //console.log(`Fetching from ${uri} with these options`, init)
     return fetch(uri, init)
     .then(response => response.json())
     .then(showResponse)
 
 
     function showResponse(body) {
-        console.log(`Received from ${uri}`)
-        console.log(body)
+        //console.log(`Received from ${uri}`)
+        //console.log(body)
 
         return body
     }
