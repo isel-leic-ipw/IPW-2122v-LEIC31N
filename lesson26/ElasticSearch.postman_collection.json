@@ -1,0 +1,690 @@
+{
+	"info": {
+		"_postman_id": "750d0cdb-3700-4e90-9b49-ea71156109e4",
+		"name": "ElasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "462569"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Disable High Disk Watermark",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"persistent\": {\n    \"cluster\": {\n      \"routing\": {\n        \"allocation.disk.threshold_enabled\": false\n      }\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/_cluster/settings",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"_cluster",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET index settings",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/b4/_settings",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"b4",
+								"_settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update index settings",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"index\": {\n        \"blocks\": {\n            \"read_only_allow_delete\": \"false\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/b4/_settings",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"b4",
+								"_settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IndexQueries",
+			"item": [
+				{
+					"name": "List indices Cat",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/_cat/indices?v",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"_cat",
+								"indices"
+							],
+							"query": [
+								{
+									"key": "v",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET indice",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/jokes",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"jokes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete indice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/jokes",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"jokes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Indice",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/foo",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"foo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List indices Json",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/_all",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"_all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DocumentQuereis",
+			"item": [
+				{
+					"name": "Create a document with POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"G10\", \"description\": \"game3 description\" , \"ownerUser\": 101 }"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_doc",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_doc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all index documents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_search",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a document with PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"game3\", \"description\": \"game3 Description\" , \"ownerUser\": 101 }"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_doc/slb1",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_doc",
+								"slb1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE document",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_doc/slb1",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_doc",
+								"slb1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateDocument",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"game2\", \"description\": \"game2 description3\" , \"ownerUser\": 101 }"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_doc/slb",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_doc",
+								"slb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search with Body - Prefix Query",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"prefix\" : { \"name\" : \"game\" }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_search",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search with Body - Wildcard Query",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"wildcard\": {\n      \"name\": {\n        \"value\": \"g*\"\n      }\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_search",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a document",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_doc/slb",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_doc",
+								"slb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search with QueryString",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_search?q=ownerUser:101",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "ownerUser:101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-ndjson"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"index\":{\"_id\":\"g1\"}}\n{ \"name\": \"game1\", \"description\": \"game Description\" , \"ownerUser\": 101 }\n{\"index\":{\"_id\":\"g2\"}}\n{ \"name\": \"game2\", \"description\": \"game Description\" , \"ownerUser\": 101 }\n{\"index\":{\"_id\":\"g3\"}}\n{ \"name\": \"game3\", \"description\": \"game Description\" , \"ownerUser\": 101 }\n{\"index\":{\"_id\":\"g4\"}}\n{ \"name\": \"game4\", \"description\": \"game Description\" , \"ownerUser\": 101 }\n{\"index\":{\"_id\":\"g5\"}}\n{ \"name\": \"game5\", \"description\": \"game Description\" , \"ownerUser\": 101 }\n{\"index\":{\"_id\":\"g6\"}}\n{ \"name\": \"game6\", \"description\": \"game Description\" , \"ownerUser\": 101 }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_bulk",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all with filtering",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"match\": {\n      \"ownerUser\": 101\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/games/_search",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"games",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Main Endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cluster Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/_cat/health?v",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"_cat",
+						"health"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Suggestions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"size\": 0,\n      \"suggest\": {\n        \"suggestions\": {\n          \"text\": \"lipman\",\n          \"term\": {\n            \"field\": \"authors\",\n            \"suggest_mode\": \"always\"\n          }\n        }\n      }\n }"
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/books/_search",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"books",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Insert1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-ndjson"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"index\":{\"_id\":\"wEmndQnfS3-8EAGrRTHrTA\"}}\n{\"categories\": [\"explicit\"], \"created_at\": \"2020-01-05 13:42:18.823766\", \"icon_url\": \"https://assets.chucknorris.host/img/avatar/chuck-norris.png\",\"id\": \"wEmndQnfS3-8EAGrRTHrTA\", \"updated_at\": \"2020-01-05 13:42:18.823766\", \"url\": \"https://api.chucknorris.io/jokes/wEmndQnfS3-8EAGrRTHrTA\", \"value\": \"If he wanted to, Chuck Norris could give himself a barium enema with his own dick.\" }\n"
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/jokes/_bulk",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"jokes",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
