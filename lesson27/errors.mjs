@@ -6,7 +6,8 @@ export const errorCodes = {
     INVALID_ARGUMENT: 1000,
     NOT_FOUND: 1001,
     INVALID_TOKEN: 1002,
-    INVALID_USER: 1003
+    INVALID_USER: 1003,
+    INVALID_CREDENTIALS: 1004
 }
 
 export const errors = {
@@ -35,6 +36,14 @@ export const errors = {
             code: errorCodes.INVALID_USER,
             message: `Invalid User`
         }
+    },
+    INVALID_CREDENTIALS: () => {
+        return {
+            code: errorCodes.INVALID_CREDENTIALS,
+            message: `Invalid User`
+        }
     }
+
+
 }
 

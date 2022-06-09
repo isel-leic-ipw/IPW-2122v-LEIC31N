@@ -14,7 +14,8 @@ export default function(gamesData, usersData)  {
         getGame : validateUser(getGame),
         updateGame : validateUser(updateGame),
         createGame : validateUser(createGame),
-        deleteGame : validateUser(deleteGame)
+        deleteGame : validateUser(deleteGame),
+        validateCredentials : validateCredentials
     }
 
 
@@ -28,9 +29,9 @@ export default function(gamesData, usersData)  {
             }
             const user = await usersData.getUserByToken(token)
             args[0] = user.userId
-            console.log(`user: `, user)
-            console.log(`token: `, token)
-            console.log(`args: `, args)
+            // console.log(`user: `, user)
+            // console.log(`token: `, token)
+            // console.log(`args: `, args)
             return f.apply(null, args)
         }
     }
@@ -78,6 +79,18 @@ export default function(gamesData, usersData)  {
              throw errors.INVALID_USER()
         }
         return game
+    }
+
+    async function validateCredentials(username, password) {
+        try {
+            const user = await usersData.getUserByUsername(username)
+            if(user.password != password) {
+                return null
+            }
+            return user.authToken
+        } catch(e) {
+            return null
+        }
     }
 }
 

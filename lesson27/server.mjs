@@ -3,12 +3,11 @@
 // 2 - Launch the server and wait for requests
 import express from 'express'
 import cors from 'cors'
-import path from 'path';
-import { fileURLToPath } from 'url';
-import hbs from 'hbs';
-import cookieParser from 'cookie-parser';
-import morgan from 'morgan';
-
+import path from 'path'
+import { fileURLToPath } from 'url'
+import hbs from 'hbs'
+import cookieParser from 'cookie-parser'
+import morgan from 'morgan'
 
 
 // Import gamesApi and all its direct and indirect dependencies
@@ -34,6 +33,9 @@ const gamesApi = gamesApiInit(services)
 import gamesWebSiteInit from './api/games-web-site.mjs'
 const gamesWebSite = gamesWebSiteInit(services)
 
+import usersWebSiteInit from './api/users-web-site.mjs'
+const usersWebSite = usersWebSiteInit(services)
+
 
 // Create and initialize the Express application
 const app = express()
@@ -44,9 +46,8 @@ app.use(express.json()) // Register middleware to handle request bodies with jso
 app.use(express.urlencoded()) // Register middleware to handle request bodies with json format
 app.use(cookieParser()) // Register middleware to handle request bodies with json format
 
-app.use(reqTime)
 app.use(morgan('dev'))
-app.use(logRequests)
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -57,6 +58,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.use('/api', gamesApi)
+app.use(usersWebSite)
 app.use('/', gamesWebSite)
 
 // Listen for API request
@@ -64,18 +66,3 @@ app.listen(PORT, () => console.log(`Example app listening at http://localhost:${
 
 
 
-function logRequests(req, rsp, next) {
-    rsp.on('finish', () => console.log(`Request received: ${req.method} ${req.path}`))
-    next()
-}
-
-function reqTime(req, rsp, next) {
-    const start = Date.now()
-    rsp.on('finish', showDuration)
-    next()
-
-    function showDuration() {
-        const duration = Date.now() - start
-        console.log(`Request took ${duration}ms`)
-    }
-}

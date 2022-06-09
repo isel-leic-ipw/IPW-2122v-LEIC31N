@@ -6,13 +6,10 @@ import express from 'express'
 
 const USER_TOKEN_COOKIE = "user-token"
 
-import handleError from './http-errors.mjs'
+import handlerWrapper from './web-site-common.mjs'
 
 export default function(services) {
     const app = express.Router()
-
-    app.use(setUser)
-    app.use('/games', verifyAuthenticated)
 
     app.get('/', home)                                    // Get all games
     app.get('/games/create',getCreateGameForm)           // Get a form to create a game
@@ -28,42 +25,7 @@ export default function(services) {
 
     return app
 
-    function verifyAuthenticated(req, rsp, next) {
-        if(req.user)
-            return next()
-        rsp.redirect('/login')
-    } 
 
-    function setUser(req, rsp, next) {
-        // Hammer time. Frankenstein here gets even uglier....
-        //req.user = '0b115b6e-8fcd-4b66-ac26-33392dcb9340'
-
-        const tokenCookie = req.cookies[USER_TOKEN_COOKIE]
-        if(tokenCookie) {
-            req.user = tokenCookie
-        } else {
-            //req.user = '3dfd8596-cfd3-431d-8e36-f0fc4c64f364'
-            req.user = '0b115b6e-8fcd-4b66-ac26-33392dcb9340'
-            rsp.cookie(USER_TOKEN_COOKIE, req.user)
-        }
-        console.log(req.user)
-        next()
-    }
-    
-    function handlerWrapper(handler) {
-        return async function(req, rsp) {
-            // This code is equivalent to the following code with async/await
-            // handler(req,rsp).catch(e => { const error = handleError(e) 
-            //     rsp.status(error.status).json(error.body)})
-
-            try {
-                await handler(req, rsp)
-            } catch(e) {
-               const error = handleError(e) 
-               rsp.status(error.status).json(error.body)
-            }    
-        }
-    }
 
     async function home(req, resp) {
         resp.render('home', {home: true})
