@@ -11,7 +11,7 @@ const GAMES = [
     { id: 4, name: "game4", description: "game4 description" , ownerUser: 101 },
     { id: 5, name: "G1", description: "game1 description", ownerUser: 100 },
     { id: 6, name: "G2", description: "game2 description" , ownerUser: 101 },
-    { id: 7, name: "G2", description: "game3 description", ownerUser: 101 },
+    { id: 7, name: "G3", description: "game3 description", ownerUser: 101 },
     { id: 8, name: "game4", description: "game4 description" , ownerUser: 100 },
 ]
 
@@ -27,14 +27,12 @@ export default function () {
     }
 
     async function getGames(userId, nameFilter) {
-        return Promise.resolve(
-            nameFilter 
-                ? GAMES.filter(g => g.name.includes(nameFilter)) 
-                : GAMES)
+        const filterFunction = nameFilter ? (g => g.name.includes(nameFilter) && g.ownerUser == userId) : (g => g.ownerUser == userId)
+        return Promise.resolve(GAMES.filter(filterFunction))
         
     }
 
-    async function getGame(userId, id) {
+    async function getGame(id) {
         const game = GAMES.find(g => g.id == id)
         if (!game) throw errors.NOT_FOUND()
         return Promise.resolve(game)

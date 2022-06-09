@@ -30,7 +30,7 @@ export default function () {
 
     }
 
-    async function getGame(userId, id) {
+    async function getGame(id) {
         return get(URI_MANAGER.get(id))
             .then(createGameFromElastic)
     }

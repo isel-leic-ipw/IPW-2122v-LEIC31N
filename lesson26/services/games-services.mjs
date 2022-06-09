@@ -44,8 +44,8 @@ export default function(gamesData, usersData)  {
         if(!id) 
             return Promise.reject(errors.INVALID_ARGUMENT("id"))   
             //throw errors.INVALID_ID   
-        await validateUserOwnsGame(userId, id)
-        return gamesData.getGame(userId, id)
+        return await validateUserOwnsGame(userId, id)
+        
     }
 
     async function createGame(userId, name, description){
@@ -72,10 +72,12 @@ export default function(gamesData, usersData)  {
     }
 
     async function validateUserOwnsGame(userId, gameId) {
-        const game = await gamesData.getGame(userId, gameId)
-        // if(!game || game.ownerUser != userId) {
-        //     throw errors.INVALID_USER()
-        // }
+        const game = await gamesData.getGame(gameId)
+        
+        if(!game || game.ownerUser != userId) {
+             throw errors.INVALID_USER()
+        }
+        return game
     }
 }
 
